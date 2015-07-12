@@ -1,9 +1,62 @@
 <!doctype html>
 <html ng-app="lists">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Binary Academy</title>
+    <link rel="stylesheet" type="text/css" href="css/lists.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="js/lists.js"></script>
   </head>
   <body>
+
+    <div ng-controller="UsersList as users" class="userList">
+      <h2>User List</h2>
+      <div class="userContainer" ng-show="show">
+        <h3>{{users.length}} покупателя</h3>
+        <form ng-submit="addUser()" class="addUserForm">
+          <input type="text" placeholder="Enter name" ng-model="userName">
+          <input type="text" placeholder="Enter age" ng-model="userAge">
+          <input type="text" placeholder="Enter city" ng-model="userCity">
+          <input type="text" placeholder="Enter avatar URL" ng-model="userAvatar">
+          <input type="submit" value="Add">
+        </form>
+        <ul class="usersList">
+          <li ng-repeat="user in users track by $index" ng-show="fileredName" class="user">
+            <div class="userAvatar"><img ng-src="{{user.avatarURL}}"></div>
+              <div class="userInfo">
+                <span>Пользователь:</span><div class="userName" ng-bind="fileredName = (user.name | custom: searchBox |     uppercase)"></div>
+                <span>Возраст:</span><div class="userAge">{{user.age}}</div>
+                <span>Город:</span><div class="userCity">{{user.city}}</div>
+              </div>
+            <img src="images/delete_icon.png" class="delete" ng-click="deleteUser()">
+          </li>
+        </ul>
+        <span>Search: </span><input type="text" placeholder="Search" ng-model="searchBox" />
+      </div>
+      <button ng-click="toogleView()" class="toogleViewButton">Show/Hide</button>
+    </div>
+
+    <div ng-controller="ProductList as products" class="productList"> 
+        <h2>Product List</h2>
+        <div class="container" ng-show="show">
+          <h3>{{products.length}} продукта</h3>
+          <form ng-submit="addProduct()">
+            <input type="text" placeholder="Enter product" ng-model="productTitle" />
+            <input type="text" placeholder="Enter price" ng-model="productPrice">
+            <button>Add</button>
+          </form>
+          <ul class="productsList">
+            <li ng-repeat="product in products track by $index" class="product">
+              {{product.title + " price: " + product.price + " &#36;" | custom: searchBox | uppercase}}
+              <img src="images/delete_icon.png" class="delete" ng-click="deleteProduct()">
+            </li>
+          </ul>
+          <span>Search: </span><input type="text" placeholder="Search" ng-model="searchBox" />
+        </div>
+        <button ng-click="toogleView()" class="toogleViewButton">Show/Hide</button>
+    </div>
+
     
   </body>
 </html>

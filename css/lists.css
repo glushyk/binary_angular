@@ -1,0 +1,67 @@
+input {
+	text-align: center;
+}
+.productList, .userList {
+	display: inline-block;
+	width: 45%;
+	padding: 20px 0;
+	vertical-align: top;
+	border: 1px solid #777;
+	text-align: center;
+	position: relative;
+	background-color: #c3e5e7;
+	overflow: hidden;
+}
+.productList {
+	margin-left: 30px;
+}
+.productsList, .usersList {
+	list-style: none;	
+	padding:0;
+	background-color: #86cecb;
+}
+.product, .user {
+	font-size: 18px;
+	padding: 15px 0;
+	border-bottom: 1px solid #c3e5e7;
+	position: relative;
+	overflow: hidden;
+}
+.addUserForm {
+	float: left;
+	width: 200px;
+	background-color: #86cecb;
+}
+.addUserForm input {
+	margin: 15px 5px;
+	width: 150px;
+	text-align: center;
+}
+.usersList {
+	margin-left: 220px;
+}
+.userAvatar img {
+	width: 75px;
+	height: 75px;
+	float: left;
+	margin-left: 15px;
+}
+.user:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.userInfo {
+	margin-left: 90px;
+}
+.delete {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+.toogleViewButton {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
