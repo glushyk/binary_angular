@@ -29,7 +29,7 @@
                 <span>Возраст:</span><div class="userAge">{{user.age}}</div>
                 <span>Город:</span><div class="userCity">{{user.city}}</div>
               </div>
-            <img src="images/delete_icon.png" class="delete" ng-click="deleteUser()">
+            <img src="images/delete_icon.png" class="delete" ng-click="deleteUser($index)">
           </li>
         </ul>
         <span>Search: </span><input type="text" placeholder="Search" ng-model="searchBox" />
@@ -49,7 +49,7 @@
           <ul class="productsList">
             <li ng-repeat="product in products track by $index" class="product">
               {{product.title + " price: " + product.price + " &#36;" | custom: searchBox | uppercase}}
-              <img src="images/delete_icon.png" class="delete" ng-click="deleteProduct()">
+              <img src="images/delete_icon.png" class="delete" ng-click="deleteProduct($index)">
             </li>
           </ul>
           <span>Search: </span><input type="text" placeholder="Search" ng-model="searchBox" />
