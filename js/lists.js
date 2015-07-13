@@ -46,7 +46,7 @@ angular.module('lists', [])
   return function(input, search) {
     if (!input) return input;
     if (!search) return input;
-    var expected = ('' + search).toLowerCase();
+    var expected = ('' + search);
       if(input.indexOf(search) > -1) {
         return input;
       } 
